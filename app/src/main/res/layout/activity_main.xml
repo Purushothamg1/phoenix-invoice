@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:fillViewport="true">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- HEADER -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@color/primary_dark"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="16dp">
+            <TextView
+                android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:text="🔥 Phoenix Invoice" android:textColor="@color/white"
+                android:textSize="18sp" android:textStyle="bold"/>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnNewInvoice"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="wrap_content" android:layout_height="36dp"
+                android:text="+ New" android:textColor="@color/white"
+                app:strokeColor="@color/white" app:cornerRadius="8dp"/>
+        </LinearLayout>
+
+        <!-- COMPANY CARD -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_margin="12dp" app:cardCornerRadius="12dp" app:cardElevation="2dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="16dp">
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="🏢 Company Details" android:textSize="15sp" android:textStyle="bold"
+                    android:textColor="@color/primary" android:paddingBottom="12dp"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical" android:paddingBottom="12dp">
+                    <ImageView android:id="@+id/ivLogo" android:layout_width="72dp" android:layout_height="72dp"
+                        android:scaleType="centerCrop" android:background="@color/surface_variant" android:visibility="gone"/>
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnUploadLogo"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp" android:text="📷 Upload Logo" app:cornerRadius="8dp"/>
+                </LinearLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp" android:hint="Company Name *">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etCompanyName" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:inputType="textCapWords"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp" android:hint="Address">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etCompanyAddress" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:inputType="textMultiLine" android:maxLines="2"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="8dp" android:hint="Phone">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etCompanyPhone" android:layout_width="match_parent"
+                            android:layout_height="wrap_content" android:inputType="phone"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:layout_marginBottom="8dp" android:hint="Email">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etCompanyEmail" android:layout_width="match_parent"
+                            android:layout_height="wrap_content" android:inputType="textEmailAddress"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="GST Number (optional)">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etCompanyGst" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:inputType="textCapCharacters"/>
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- CUSTOMER CARD -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginHorizontal="12dp" android:layout_marginBottom="12dp"
+            app:cardCornerRadius="12dp" app:cardElevation="2dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="16dp">
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="👤 Customer Details" android:textSize="15sp" android:textStyle="bold"
+                    android:textColor="@color/primary" android:paddingBottom="12dp"/>
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp" android:hint="Customer Name *">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etCustomerName" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:inputType="textCapWords"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="8dp" android:hint="Phone (WhatsApp)">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etCustomerPhone" android:layout_width="match_parent"
+                            android:layout_height="wrap_content" android:inputType="phone"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:layout_marginBottom="8dp" android:hint="GST No. (optional)">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etCustomerGst" android:layout_width="match_parent"
+                            android:layout_height="wrap_content" android:inputType="textCapCharacters"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Address">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etCustomerAddress" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:inputType="textMultiLine" android:maxLines="2"/>
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- INVOICE DETAILS CARD -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginHorizontal="12dp" android:layout_marginBottom="12dp"
+            app:cardCornerRadius="12dp" app:cardElevation="2dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="16dp">
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="📄 Invoice Details" android:textSize="15sp" android:textStyle="bold"
+                    android:textColor="@color/primary" android:paddingBottom="12dp"/>
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp" android:hint="Invoice Number">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etInvoiceNumber" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:inputType="textCapCharacters"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="8dp" android:hint="Invoice Date *">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etInvoiceDate" android:layout_width="match_parent"
+                            android:layout_height="wrap_content" android:focusable="true"
+                            android:clickable="true" android:cursorVisible="false" android:inputType="none"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:layout_marginBottom="8dp" android:hint="Due Date">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etDueDate" android:layout_width="match_parent"
+                            android:layout_height="wrap_content" android:focusable="true"
+                            android:clickable="true" android:cursorVisible="false" android:inputType="none"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:hint="Amount Paid (₹)" app:prefixText="₹ ">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etAmountPaid" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:inputType="numberDecimal"/>
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ITEMS CARD -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginHorizontal="12dp" android:layout_marginBottom="12dp"
+            app:cardCornerRadius="12dp" app:cardElevation="2dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="16dp">
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="📦 Items" android:textSize="15sp" android:textStyle="bold"
+                    android:textColor="@color/primary" android:paddingBottom="10dp"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="32dp"
+                    android:background="@color/primary_dark" android:gravity="center_vertical"
+                    android:orientation="horizontal" android:paddingHorizontal="4dp">
+                    <TextView android:layout_width="22dp" android:layout_height="wrap_content"
+                        android:text="#" android:textColor="@color/white" android:textSize="9sp" android:textStyle="bold"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="2.5"
+                        android:text="ITEM" android:textColor="@color/white" android:textSize="9sp" android:textStyle="bold" android:paddingStart="4dp"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="0.8"
+                        android:text="QTY" android:textColor="@color/white" android:textSize="9sp" android:textStyle="bold" android:gravity="end"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1.2"
+                        android:text="PRICE" android:textColor="@color/white" android:textSize="9sp" android:textStyle="bold" android:gravity="end"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="0.8"
+                        android:text="DISC%" android:textColor="@color/white" android:textSize="9sp" android:textStyle="bold" android:gravity="end"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="0.8"
+                        android:text="TAX%" android:textColor="@color/white" android:textSize="9sp" android:textStyle="bold" android:gravity="end"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1.3"
+                        android:text="TOTAL" android:textColor="@color/white" android:textSize="9sp" android:textStyle="bold" android:gravity="end"/>
+                    <View android:layout_width="30dp" android:layout_height="1dp"/>
+                </LinearLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvItems" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:nestedScrollingEnabled="false"/>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAddItem"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="match_parent" android:layout_height="44dp"
+                    android:layout_marginTop="8dp" android:text="＋ Add Item"
+                    app:cornerRadius="8dp" app:strokeColor="@color/primary"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- TOTALS CARD -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginHorizontal="12dp" android:layout_marginBottom="12dp"
+            app:cardCornerRadius="12dp" app:cardElevation="2dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="16dp">
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="💰 Summary" android:textSize="15sp" android:textStyle="bold"
+                    android:textColor="@color/primary" android:paddingBottom="10dp"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="36dp"
+                    android:orientation="horizontal" android:gravity="center_vertical">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="Subtotal" android:textSize="13sp" android:textColor="@color/on_surface_variant"/>
+                    <TextView android:id="@+id/tvSubtotal" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="₹0.00"
+                        android:textSize="13sp" android:textColor="@color/on_surface" android:textStyle="bold"/>
+                </LinearLayout>
+                <LinearLayout android:id="@+id/layoutDiscountRow" android:layout_width="match_parent"
+                    android:layout_height="36dp" android:orientation="horizontal"
+                    android:gravity="center_vertical" android:visibility="gone">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="Discount" android:textSize="13sp" android:textColor="@color/success"/>
+                    <TextView android:id="@+id/tvDiscount" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="- ₹0.00"
+                        android:textSize="13sp" android:textColor="@color/success" android:textStyle="bold"/>
+                </LinearLayout>
+                <LinearLayout android:id="@+id/layoutTaxRow" android:layout_width="match_parent"
+                    android:layout_height="36dp" android:orientation="horizontal"
+                    android:gravity="center_vertical" android:visibility="gone">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="Tax (GST)" android:textSize="13sp" android:textColor="@color/on_surface_variant"/>
+                    <TextView android:id="@+id/tvTax" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="₹0.00"
+                        android:textSize="13sp" android:textColor="@color/on_surface" android:textStyle="bold"/>
+                </LinearLayout>
+                <View android:layout_width="match_parent" android:layout_height="1dp"
+                    android:background="@color/divider" android:layout_marginVertical="6dp"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="48dp"
+                    android:orientation="horizontal" android:gravity="center_vertical"
+                    android:background="@color/primary_dark" android:paddingHorizontal="12dp">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="Grand Total" android:textSize="15sp"
+                        android:textColor="@color/white" android:textStyle="bold"/>
+                    <TextView android:id="@+id/tvGrandTotal" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="₹0.00"
+                        android:textSize="17sp" android:textColor="@color/accent" android:textStyle="bold"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="40dp"
+                    android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginTop="8dp">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                        android:text="Balance Due" android:textSize="13sp"
+                        android:textColor="@color/error" android:textStyle="bold"/>
+                    <TextView android:id="@+id/tvBalanceDue" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="₹0.00"
+                        android:textSize="15sp" android:textColor="@color/error" android:textStyle="bold"/>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- NOTES CARD -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginHorizontal="12dp" android:layout_marginBottom="8dp"
+            app:cardCornerRadius="12dp" app:cardElevation="2dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="16dp">
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="📝 Notes" android:textSize="15sp" android:textStyle="bold"
+                    android:textColor="@color/primary" android:paddingBottom="8dp"/>
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:hint="Payment terms, bank details, thank you note...">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etNotes" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:inputType="textMultiLine"
+                        android:lines="3" android:maxLines="5"/>
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- TEMPLATE SELECTOR CARD -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginHorizontal="12dp" android:layout_marginBottom="8dp"
+            app:cardCornerRadius="12dp" app:cardElevation="2dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="16dp">
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="🎨 Invoice Template" android:textSize="15sp" android:textStyle="bold"
+                    android:textColor="@color/primary" android:paddingBottom="12dp"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:weightSum="3">
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnTemplate0"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:layout_marginEnd="4dp"
+                        android:text="Modern&#10;Clean" android:textSize="11sp"
+                        app:cornerRadius="8dp" app:strokeColor="@color/primary"/>
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnTemplate1"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:layout_marginHorizontal="4dp"
+                        android:text="GST&#10;Invoice" android:textSize="11sp"
+                        app:cornerRadius="8dp" app:strokeColor="@color/primary"/>
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnTemplate2"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:layout_marginStart="4dp"
+                        android:text="Compact&#10;Retail" android:textSize="11sp"
+                        app:cornerRadius="8dp" app:strokeColor="@color/primary"/>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ACTION BUTTONS -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:background="@color/surface"
+            android:elevation="8dp" android:padding="12dp">
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDownload" android:layout_width="match_parent"
+                android:layout_height="52dp" android:text="⬇  Download Invoice"
+                android:textSize="15sp" android:textStyle="bold"
+                app:backgroundTint="@color/primary" app:cornerRadius="12dp"/>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnShare" android:layout_width="match_parent"
+                android:layout_height="52dp" android:layout_marginTop="8dp"
+                android:text="💬  Share via WhatsApp" android:textSize="15sp"
+                android:textStyle="bold" app:backgroundTint="@color/whatsapp_green"
+                app:cornerRadius="12dp"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
