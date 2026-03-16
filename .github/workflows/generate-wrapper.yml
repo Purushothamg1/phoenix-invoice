@@ -1,0 +1,18 @@
+name: Generate Gradle Wrapper
+on:
+  push:
+    branches:
+      - main
+jobs:
+  generate-wrapper:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Generate Gradle wrapper
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: wrapper --gradle-version 8.1.1
+      - name: Commit wrapper
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 'chore: add gradle wrapper'
